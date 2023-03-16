@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<p>Правда, что elem.lastChild.nextSibling всегда равен null?</p> 
+	<p>Правда. Элемент elem.lastChild последний, у него нет ссылки nextSibling.</p>
+
+	<p>Правда, что elem.children[0].previousSibling всегда равен null?</p>
+	<p>Нет. Потому что elem.children[0] – потомок-элемент. Перед ним могут быть другие узлы.</p>
+	
+</body>
+</html>

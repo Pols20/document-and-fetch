@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style type="text/css">
+		div {
+			border: 1px solid #000;
+			padding: 1%;
+		}
+
+		div,
+		.edit {
+		  height: 150px;
+		  width: 400px;
+		  font-family: sans-serif;
+		  font-size: 14px;
+		  display: block;
+		}
+
+
+		.edit {
+		  border: 3px solid red;
+		  padding: 0px;
+		}
+
+		.edit:focus {
+		  outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae veritatis, dicta voluptatibus mollitia. Earum veritatis, ullam nam pariatur est exercitationem laudantium quod. In aperiam sint, expedita nihil natus, at quo.</div>
+	
+	
+	<script>
+		let area = null;
+		let div = document.getElementById('div');
+
+	    div.onclick = function() {
+	      editText();
+	    };
+
+	    function editText() {
+	      area = document.createElement('textarea');
+	      area.className = 'edit';
+	      area.value = div.innerHTML;
+
+	      area.onkeydown = function(event) {
+	        if (event.key == 'Enter') {
+	          this.blur();
+	        }
+	      };
+
+	      area.onblur = function() {
+	        editEnd();
+	      };
+
+	      div.replaceWith(area);
+	      area.focus();
+	    }
+
+	    function editEnd() {
+	      div.innerHTML = area.value;
+	      area.replaceWith(div);
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<p>В чём отличие между getComputedStyle(elem).width и elem.clientWidth?</p>
+
+	<p>1. Если есть полоса прокрутки, то некоторые браузеры вычитают место из CSS-ширины (т.к. оно больше недоступно для содержимого), а некоторые – нет. Свойство clientWidth всегда ведёт себя одинаково: оно всегда обозначает размер за вычетом прокрутки.</p>
+	<p>2. getComputedStyle не всегда даст ширину, он может вернуть, к примеру, "auto" для строчного элемента.</p>
+	<p>3. clientWidth возвращает число, а getComputedStyle(elem).width – строку с px на конце.</p>
+
+	
+</body>
+</html>

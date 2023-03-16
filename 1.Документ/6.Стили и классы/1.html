@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h2>Уведомление находится справа</h2>
+
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit expedita vel velit repellat tenetur optio corporis dolores, maxime quam magnam nostrum, amet quasi placeat, assumenda accusantium hic! Nisi, necessitatibus, labore.</p>
+
+	<script>
+		function showNotification({top = 0, right = 0, className, html}) {
+
+	      let notification = document.createElement('div');
+	      notification.className = "notification";
+	      if (className) {
+	        notification.classList.add(className);
+	      }
+
+	      notification.style.top = top + 'px';
+	      notification.style.right = right + 'px';
+
+	      notification.innerHTML = html;
+	      document.body.append(notification);
+
+	      setTimeout(() => notification.remove(), 1500);
+	    }
+	    
+	    let i = 1;
+	    setInterval(() => {
+	      showNotification({
+	        top: 10,
+	        right: 10,
+	        html: 'Hello ' + i++,
+	        className: "welcome"
+	      });
+	    }, 2000);
+	</script>
+	
+</body>
+</html>
